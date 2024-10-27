@@ -1,0 +1,218 @@
+.details-grid {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // gap: 30px;
+    margin-bottom: 25px;
+.col-lg-6{
+    margin-bottom: 30px;
+
+}
+    .imgs-cont {
+        // width: 100%;
+        // display: flex;
+        // flex-direction: column;
+        // gap: 12px;
+    }
+
+    .small-img {
+        // display: flex;
+        // gap: 16px;
+        overflow: hidden;
+    }
+}
+
+.main-img-cont {
+    width: 100%;
+    aspect-ratio: 565 / 290;
+    border-radius: 23px;
+    overflow: hidden;
+    margin-bottom: 12px;
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.small-img-cont {
+    overflow: hidden;
+    border-radius: 14px;
+    height: 57px;
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.main-details {
+    .ad-details-title {
+        color: $main;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+
+    .ad-details-price {
+        color: $hover;
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+
+    .ad-details-city {
+        color: $main;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .ad-details-category {
+        color: #878787;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 24px;
+
+    }
+
+    .ad-details-date {
+        color: #878787;
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .ad-details-views {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        color: $hover;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .ad-details-contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        @include max-767{
+            grid-template-columns: 1fr;
+        }
+        a {
+            border-radius: 23px;
+            font-size: 20px;
+            height: 48px;
+            font-weight: 500;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            @include tr;
+            &:hover{
+                opacity: .9;
+            }
+        }
+
+        .phone {
+            background-color: $main;
+            color: $hover
+        }
+
+        .whats {
+            background-color: $hover;
+            color: $main;
+        }
+    }
+}
+
+.sec-details {
+    h3 {
+        font-size: 24px;
+        font-weight: 400;
+        color: $main;
+        margin-bottom: 11px;
+    }
+
+    .sec-details-cont {
+        border-radius: 23px;
+        padding: 17px 0 34px;
+        border: 1px solid #F0F0F0;
+        box-shadow: 0 0 40px  #F0F0F0;
+
+        .sec-detail-cont {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 30px;
+            padding: 12px 45px 12px 20px;
+            @include max-767{
+                gap: 15px;
+                padding: 12px 20px;
+            }
+        }
+        .detail-key{
+            font-size: 20px;
+            font-weight: 400;
+            color:$main;
+        }
+    }
+    .note{
+        padding: 30px;
+        border-radius: 23px;
+        border: 1px solid #F0F0F0;
+        box-shadow: 0 0 40px  #F0F0F0;
+        font-size: 20px;
+        font-weight: 300;
+        color:$main;
+        height: calc(100% - 40px);
+        overflow: hidden;
+    }
+}
+
+.sec-details-cont >:nth-child(even){
+    background: #F6F6F6;
+}
+
+@media (max-width: 991px) {
+    .details-grid {
+        grid-template-columns: 1fr  ;
+    }
+    .main-details
+    {
+        .ad-details-title{
+            font-size:25px;
+            margin-bottom: 14px;
+        }
+        .ad-details-price{
+            font-size:25px;
+            margin-bottom: 10px;
+        }
+        .ad-details-city{
+            font-size:25px;
+            margin-bottom: 10px;
+        }
+        .ad-details-category{
+            font-size:20px;
+            margin-bottom: 14px;
+        }
+        .ad-details-date{
+            font-size:20px;
+            margin-bottom: 14px;
+        }
+        .ad-details-views{
+            font-size:20
+            
+            px;
+            margin-bottom: 10px;
+        }
+        .ad-details-contact a{
+            font-size:15px;
+        }
+    } 
+}
