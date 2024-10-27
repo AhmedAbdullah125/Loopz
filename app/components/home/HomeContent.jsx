@@ -140,7 +140,7 @@ export default function HomeContent() {
         <div className='container HomeContentHeader'>
             <div className="tabs" >
                 {products.map((product, index) =>
-                    <div className={`tab ${selectedTab == product.title ? 'avtiveTab' : ""}`} onClick={() => {
+                    <div key={product.id} className={`tab ${selectedTab == product.title ? 'avtiveTab' : ""}`} onClick={() => {
                         setSelectedTab(product.title);
                         setSelectedIndex(index);
                     }}>
