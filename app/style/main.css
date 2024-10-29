@@ -752,7 +752,21 @@ header .cart-balance {
   border: 1px solid rgba(28, 28, 28, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-  position: relative;
+}
+.HomeContentHeader .product-card .img-cont {
+  width: 100%;
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HomeContentHeader .product-card .img-cont img {
+  max-height: 144px;
+  width: auto;
+  max-width: 144px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 20px;
 }
 .HomeContentHeader .product-card .offerTag {
   position: absolute;
@@ -784,27 +798,30 @@ header .cart-balance {
 .HomeContentHeader .product-card .colored {
   color: var(--main-color);
 }
+.HomeContentHeader .product-ticket {
+  position: relative;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.HomeContentHeader .product-ticket .img-cont {
+  width: 100%;
+  height: 133px;
+}
+.HomeContentHeader .product-ticket img {
+  width: 100%;
+  height: 100%;
+  max-width: unset;
+  max-height: unset;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .HomeContentHeader .product-card:hover {
   border: 1px solid var(--main-color);
 }
 .HomeContentHeader .product-card:hover .addBtn {
   background-color: var(--main-color);
   color: var(--white-color);
-}
-.HomeContentHeader .img-cont {
-  width: 100%;
-  height: 144px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.HomeContentHeader .img-cont img {
-  max-height: 144px;
-  width: auto;
-  max-width: 144px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  margin-bottom: 20px;
 }
 .HomeContentHeader .productName {
   color: var(--black-color);
