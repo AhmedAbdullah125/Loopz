@@ -1,4 +1,8 @@
 .HomeContentHeader {
+    .swiper-slide {
+        height: auto;
+    }
+
     .tabs {
         display: flex;
         align-items: center;
@@ -15,6 +19,7 @@
             cursor: pointer;
             position: relative;
             @include tr;
+
 
 
             img {
@@ -127,7 +132,7 @@
 
     //     }
     // }
-    
+
 
     .product-card {
         padding: 20px 20px 15px;
@@ -138,13 +143,14 @@
         border: 1px solid rgba($color: #1C1C1C, $alpha: .10);
         border-radius: 10px;
         @include tr;
+
         .img-cont {
             width: 100%;
             height: 144px;
             display: flex;
             align-items: center;
             justify-content: center;
-    
+
             img {
                 max-height: 144px;
                 width: auto;
@@ -190,23 +196,110 @@
         }
 
     }
-    .product-ticket{
+
+    .product-ticket {
         position: relative;
         padding: 0;
         border-radius: 10px;
-        overflow:hidden;
-        .img-cont{
+        overflow: hidden;
+        height: 100%;
+        // border: 1px solid rgba($color: #1C1C1C, $alpha: .20);
+        display: flex;
+        flex-direction: column;
+
+        .productName {
+            height: unset;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba($color: #1C1C1C, $alpha: .20);
+        }
+
+        .img-cont {
             width: 100%;
             height: 133px;
+            position: relative;
         }
-        img{
+
+        .prod-price {
+            position: absolute;
+            bottom: 0;
+            inset-inline-end: 13px;
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 1 / 1;
+            padding: 8px;
+            border-radius: 50%;
+            min-height: 50px;
+            background-color: $main;
+            align-items: center;
+            bottom: -25px;
+            color: $white;
+
+            .num {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .curr {
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+        }
+
+        img {
             width: 100%;
             height: 100%;
             max-width: unset;
             max-height: unset;
-            object-fit:cover ;
+            object-fit: cover;
+        }
+        .productName{
+            width: calc(100% - 50px);
+        }
+        .data-cont {
+            padding: 17px 13px;
+            border: 1px solid rgba($color: #1C1C1C, $alpha: .20);
+            border-radius: 0 0 10px 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .feature-cont{
+                height: 100%;
+            }
+            ul {
+                padding-inline-start: 13px;
+                margin-bottom: 0;
+            }
+
+            li {
+                font-size: 14px;
+                font-weight: 400;
+                color: $black;
+                margin-bottom: 8px;
+            }
+
+            li:last-child {
+                font-weight: 600;
+
+            }
+
+            .circul {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                top: 50%;
+                inset-inline-end: -8px;
+                background-color: #f9f9f9;
+                border: 1px solid rgba($color: #1C1C1C, $alpha: .20);
+                border-radius: 50%;
+            }
+
+            .circul2 {
+                inset-inline-start: -8px;
+            }
         }
     }
+
     .product-card:hover {
         border: 1px solid $main;
 
@@ -217,13 +310,23 @@
 
     }
 
-    
+
 
     .productName {
         color: $black;
         font-size: 18px;
         font-weight: 500;
         margin-bottom: 5px;
+        height: 45px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        margin-bottom: 12px;
+
     }
 
     .productCat {

@@ -106,22 +106,22 @@ export default function HomeContent() {
             id: "03", title: "Tickets", img: Tickets, data:
                 [{
                     id: 1, title: "Normal Tickets", data: [
-                        { id: 311, img: t1, productTitle: "Colorful Stacking Block Wooden", category: "Educational", rate: 4, price: "18.000", offer: 0 },
-                        { id: 312, img: t2, productTitle: "ITTL EDUCATIONAL TOY", category: "Educational", rate: 4, price: "18.000", offer: 0 },
-                        { id: 313, img: t3, productTitle: "Muslim Holy Quran Laptop", category: "Educational", rate: 4, price: "18.000", offer: 0 },
-                        { id: 315, img: t4, productTitle: "Muslim Holy Quran Laptop", category: "Educational", rate: 4, price: "18.000", offer: 0 },
-                        { id: 314, img: t3, productTitle: "Wooden Magnetic Drawing", category: "Educational", rate: 4, price: "18.000", offer: 0 },
+                        { id: 311, img: t1, productTitle: "Slide 2 times", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "Shooting", "Trampoline ( 1 hour )", "6 years and above"], price: "8.9", offer: 0 },
+                        { id: 312, img: t2, productTitle: "Open day ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "Shooting", "Trampoline ( 1 hour )", "6 years and above"], price: "8.9", offer: 0 },
+                        { id: 313, img: t3, productTitle: "Slide ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "6 years and above"], price: "8.9", offer: 0 },
+                        { id: 315, img: t4, productTitle: "Combo ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "6 years and above"], price: "8.9", offer: 0 },
+                        { id: 314, img: t3, productTitle: "Compo ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "6 years and above"], price: "8.9", offer: 0 },
                     ]
                 },
                 {
                     id: 2, title: "Combo Tickets", data: [
-                        { id: 321, img: t1, productTitle: "Colorful Stacking Block Wooden", category: "Educational", rate: 4, price: "18.000", offer: 50 },
-                        { id: 322, img: t2, productTitle: "ITTL EDUCATIONAL TOY", category: "Educational", rate: 4, price: "18.000", offer: 12 },
-                        { id: 323, img: t3, productTitle: "Muslim Holy Quran Laptop", category: "Educational", rate: 4, price: "18.000", offer: 33 },
-                        { id: 324, img: t4, productTitle: "Wooden Magnetic Drawing", category: "Educational", rate: 4, price: "18.000", offer: 19 },
+                        { id: 321, img: t1, productTitle: "Open day ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "6 years and above"], price: "8.9", offer: 50 },
+                        { id: 322, img: t2, productTitle: "ITTL TOY", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "6 years and above"], price: "8.9", offer: 12 },
+                        { id: 323, img: t3, productTitle: "Slide ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "Shooting", "Trampoline ( 1 hour )", "6 years and above"], price: "8.9", offer: 33 },
+                        { id: 324, img: t4, productTitle: "Open day ticket", features: ["Football pitch", "Climbing walls", "Meltdown", "Sutu interactive screen", "Shooting", "Trampoline ( 1 hour )", "6 years and above"], price: "8.9", offer: 19 },
                     ]
                 },
-               ]
+                ]
         }
     ]
     return (
@@ -182,49 +182,75 @@ export default function HomeContent() {
                                 >
                                     {product.data.map((singleProduct) =>
                                         <SwiperSlide key={singleProduct.id}>
-                                            <div className={`${selectedIndex==2?'product-ticket':"product-card"}`} >
-                                                {singleProduct.offer > 0 ?
-                                                    <div className="offerTag" style={{ backgroundImage: `url(${offer.src}` }}>
-                                                        <p>{singleProduct.offer}% Sale</p>
+                                            {selectedIndex < 2 ?
+                                                <div className={`product-card`} >
+                                                    {singleProduct.offer > 0 ?
+                                                        <div className="offerTag" style={{ backgroundImage: `url(${offer.src}` }}>
+                                                            <p>{singleProduct.offer}% Sale</p>
+                                                        </div>
+                                                        : null
+                                                    }
+
+                                                    <i className={`${bookmarks.includes(singleProduct.id) ? 'fa-solid colored' : "fa-regular"} fa-bookmark `} onClick={() => {
+                                                        if (bookmarks.includes(singleProduct.id)) {
+                                                            secBookmark = [...bookmarks];
+                                                            let index = secBookmark.indexOf(singleProduct.id);
+                                                            secBookmark.splice(index, 1);
+                                                            setBookmarks(secBookmark);
+                                                        }
+                                                        else {
+                                                            secBookmark = [...bookmarks];
+                                                            secBookmark.push(singleProduct.id);
+                                                            setBookmarks(secBookmark);
+                                                        }
+                                                        console.log(bookmarks);
+                                                        console.log(bookmarks.includes(singleProduct.id));
+                                                    }
+                                                    }></i>
+
+                                                    <div className="img-cont">
+                                                        <Image src={singleProduct.img} alt='Loopz'></Image>
                                                     </div>
-                                                    : null
-                                                }
-                                                {selectedIndex==2?null:
-                                                <i className={`${bookmarks.includes(singleProduct.id) ? 'fa-solid colored' : "fa-regular"} fa-bookmark `} onClick={() => {
-                                                    if (bookmarks.includes(singleProduct.id)) {
-                                                        secBookmark = [...bookmarks];
-                                                        let index = secBookmark.indexOf(singleProduct.id);
-                                                        secBookmark.splice(index, 1);
-                                                        setBookmarks(secBookmark);
-                                                    }
-                                                    else {
-                                                        secBookmark = [...bookmarks];
-                                                        secBookmark.push(singleProduct.id);
-                                                        setBookmarks(secBookmark);
-                                                    }
-                                                    console.log(bookmarks);
-                                                    console.log(bookmarks.includes(singleProduct.id));
-                                                }
-                                                }></i>
-                                                }
-                                                <div className="img-cont">
-                                                    <Image src={singleProduct.img} alt='Loopz'></Image>
+                                                    <h3 className="productName">{singleProduct.productTitle}</h3>
+                                                    <span className='productCat'>{singleProduct.category}</span>
+                                                    <div className="rate">
+                                                        <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
+                                                        <i className={`fa-solid fa-star ${singleProduct.rate >= 2 ? "golden" : ""}`}></i>
+                                                        <i className={`fa-solid fa-star ${singleProduct.rate >= 3 ? "golden" : ""}`}></i>
+                                                        <i className={`fa-solid fa-star ${singleProduct.rate >= 4 ? "golden" : ""}`}></i>
+                                                        <i className={`fa-solid fa-star ${singleProduct.rate >= 5 ? "golden" : ""}`}></i>
+                                                    </div>
+                                                    <div className="price-period">
+                                                        <h4 className='productPrice'>{singleProduct.price} K.D</h4>
+                                                        {selectedIndex == 1 ? <h6 className='period'>1 day</h6> : null}
+                                                    </div>
+                                                    {selectedIndex == 0 ? <Link href={''} className='addBtn'>Add To Cart</Link> : null}
                                                 </div>
-                                                <h3 className="productName">{singleProduct.productTitle}</h3>
-                                                <span className='productCat'>{singleProduct.category}</span>
-                                                <div className="rate">
-                                                    <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
-                                                    <i className={`fa-solid fa-star ${singleProduct.rate >= 2 ? "golden" : ""}`}></i>
-                                                    <i className={`fa-solid fa-star ${singleProduct.rate >= 3 ? "golden" : ""}`}></i>
-                                                    <i className={`fa-solid fa-star ${singleProduct.rate >= 4 ? "golden" : ""}`}></i>
-                                                    <i className={`fa-solid fa-star ${singleProduct.rate >= 5 ? "golden" : ""}`}></i>
+                                                :
+                                                <div className="product-ticket">
+                                                    <div className="img-cont">
+                                                        <Image src={singleProduct.img} alt='Loopz'></Image>
+                                                        <div className="prod-price">
+                                                            <span className='num'>{singleProduct.price}</span>
+                                                            <span className='curr'>K.D</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="data-cont">
+                                                        <h3 className="productName">{singleProduct.productTitle}</h3>
+                                                        <div className="feature-cont">
+                                                            <ul>
+                                                                {singleProduct.features.map((feature, index) =>
+                                                                    <li key={index}>{feature}</li>
+                                                                )}
+                                                            </ul>
+                                                        </div>
+                                                        <div className="circul"></div>
+                                                        <div className="circul circul2"></div>
+                                                    <Link href={''} className='addBtn'>Book Now</Link>
+
+                                                    </div>
                                                 </div>
-                                                <div className="price-period">
-                                                    <h4 className='productPrice'>{singleProduct.price} K.D</h4>
-                                                    {selectedIndex == 1 ? <h6 className='period'>1 day</h6> : null}
-                                                </div>
-                                                {selectedIndex == 0 ? <Link href={''} className='addBtn'>Add To Cart</Link> : null}
-                                            </div>
+                                            }
                                         </SwiperSlide>
                                     )}
                                 </Swiper>

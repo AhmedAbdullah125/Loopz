@@ -517,6 +517,7 @@ header .input-cont input {
   height: 100%;
   width: 100%;
   border-radius: 30px;
+  background-color: transparent;
 }
 header .input-cont .dropdown button {
   background-color: transparent;
@@ -660,6 +661,9 @@ header .cart-balance {
   height: 11px;
 }
 
+.HomeContentHeader .swiper-slide {
+  height: auto;
+}
 .HomeContentHeader .tabs {
   display: flex;
   align-items: center;
@@ -803,10 +807,42 @@ header .cart-balance {
   padding: 0;
   border-radius: 10px;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.HomeContentHeader .product-ticket .productName {
+  height: unset;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(28, 28, 28, 0.2);
 }
 .HomeContentHeader .product-ticket .img-cont {
   width: 100%;
   height: 133px;
+  position: relative;
+}
+.HomeContentHeader .product-ticket .prod-price {
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 13px;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1/1;
+  padding: 8px;
+  border-radius: 50%;
+  min-height: 50px;
+  background-color: var(--main-color);
+  align-items: center;
+  bottom: -25px;
+  color: var(--white-color);
+}
+.HomeContentHeader .product-ticket .prod-price .num {
+  font-size: 16px;
+  font-weight: 600;
+}
+.HomeContentHeader .product-ticket .prod-price .curr {
+  font-size: 12px;
+  font-weight: 400;
 }
 .HomeContentHeader .product-ticket img {
   width: 100%;
@@ -815,6 +851,46 @@ header .cart-balance {
   max-height: unset;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.HomeContentHeader .product-ticket .productName {
+  width: calc(100% - 50px);
+}
+.HomeContentHeader .product-ticket .data-cont {
+  padding: 17px 13px;
+  border: 1px solid rgba(28, 28, 28, 0.2);
+  border-radius: 0 0 10px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.HomeContentHeader .product-ticket .data-cont .feature-cont {
+  height: 100%;
+}
+.HomeContentHeader .product-ticket .data-cont ul {
+  padding-inline-start: 13px;
+  margin-bottom: 0;
+}
+.HomeContentHeader .product-ticket .data-cont li {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black-color);
+  margin-bottom: 8px;
+}
+.HomeContentHeader .product-ticket .data-cont li:last-child {
+  font-weight: 600;
+}
+.HomeContentHeader .product-ticket .data-cont .circul {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  inset-inline-end: -8px;
+  background-color: #f9f9f9;
+  border: 1px solid rgba(28, 28, 28, 0.2);
+  border-radius: 50%;
+}
+.HomeContentHeader .product-ticket .data-cont .circul2 {
+  inset-inline-start: -8px;
 }
 .HomeContentHeader .product-card:hover {
   border: 1px solid var(--main-color);
@@ -828,6 +904,15 @@ header .cart-balance {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
+  height: 45px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  margin-bottom: 12px;
 }
 .HomeContentHeader .productCat {
   font-size: 16px;
