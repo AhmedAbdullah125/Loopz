@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import BreadCrampp from '../components/product/BreadCrampp'
 import ProductDataWrapper from '../components/product/ProductDataWrapper'
@@ -8,9 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import axios from 'axios'
 import Loading from '../loading'
 
-
-
-export default function product() {
+export default function Product() {
     const searchParams = useSearchParams()
     const [pathId, setPathId] = useState(searchParams.get('id'))
     let [product, setProduct] = useState([]);
