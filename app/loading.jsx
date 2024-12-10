@@ -1,5 +1,5 @@
 import React from 'react'
-import footerimg from './assets/loading1.png'
+import footerimg from './assets/loops.svg'
 import Image from 'next/image'
 
 export default function Loading() {

@@ -1,0 +1,305 @@
+'use client'
+import Image from 'next/image'
+import Link from 'next/link';
+import React, { useState } from 'react'
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import offer from '../../assets/Home/offer.svg'
+
+export default function HomeToys(toys) {
+    let data = toys.toys
+    let [bookmarks, setBookmarks] = useState([]); //bookMarks array
+    let secBookmark = [];
+
+    return (
+        <div className='home-toys'>
+            <div className="products">
+                <div className="cat-cat" key={"toysNewArrival"}>
+                    <div className="products-group-title">
+                        <p className="group-title">New Arrival</p>
+                        <Link href={"/newArrival"} className='seeLink'>See all</Link>
+                    </div>
+                    <div className="d-none">
+                    </div>
+                    <div className="cards-cont">
+                        <Swiper
+                            // navigation
+                            // pagination={{ type: "bullets", clickable: true }}
+                            spaceBetween={12}
+                            slidesPerView={7.5}
+                            autoplay={false}
+                            loop={false}
+                            modules={[Autoplay, Navigation, Pagination]}
+                            breakpoints={{
+                                1400: {
+                                    slidesPerView: 4,
+                                },
+                                1100: {
+                                    slidesPerView: 4,
+                                },
+                                767: {
+                                    slidesPerView: 3,
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    autoplay: false,
+                                },
+                                640: {
+                                    slidesPerView: 2,
+                                    autoplay: false,
+                                },
+                                100: {
+                                    slidesPerView: 1,
+                                    autoplay: false,
+                                },
+                            }}
+                        >
+                            {data.new_arrival.map((singleProduct) =>
+                                <SwiperSlide key={singleProduct.id}>
+                                    <div className={`product-card`} >
+                                        {singleProduct.discount > 0 ?
+                                            <div className="offerTag" style={{ backgroundImage: `url(${offer.src}` }}>
+                                                <p>{singleProduct.discount}% Sale</p>
+                                            </div>
+                                            : null
+                                        }
+
+                                        <i className={`${bookmarks.includes(singleProduct.id) || singleProduct.is_favorite ? 'fa-solid colored' : "fa-regular"} fa-bookmark `} onClick={() => {
+                                            if (bookmarks.includes(singleProduct.id)) {
+
+                                                //handle Add To Favourites 
+                                                secBookmark = [...bookmarks];
+                                                let index = secBookmark.indexOf(singleProduct.id);
+                                                secBookmark.splice(index, 1);
+                                                setBookmarks(secBookmark);
+                                            }
+                                            else {
+                                                //handle Remove From Favourites 
+                                                secBookmark = [...bookmarks];
+                                                secBookmark.push(singleProduct.id);
+                                                setBookmarks(secBookmark);
+                                            }
+                                            console.log(bookmarks);
+                                            console.log(bookmarks.includes(singleProduct.id));
+                                        }
+                                        }></i>
+
+                                        <div className="img-cont">
+                                            <Image src={singleProduct.image} alt='Loopz' width={144} height={144}></Image>
+                                        </div>
+                                        <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                        <span className='productCat'>{singleProduct.category.name}</span>
+                                        <div className="rate">
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 2 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 3 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 4 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 5 ? "golden" : ""}`}></i>
+                                        </div>
+                                        <div className="price-period">
+                                            <h4 className='productPrice'>{singleProduct.price} K.D</h4>
+
+                                        </div>
+                                        <Link href={''} className='addBtn'>Add To Cart</Link>
+                                    </div>
+
+                                </SwiperSlide>
+                            )}
+                        </Swiper>
+                    </div>
+                </div>
+
+                <div className="cat-cat" key={"toysOffders"}>
+                    <div className="products-group-title">
+                        <p className="group-title">Offers</p>
+                        <Link href={"/newArrival"} className='seeLink'>See all</Link>
+                    </div>
+                    <div className="d-none">
+                    </div>
+                    <div className="cards-cont">
+                        <Swiper
+                            // navigation
+                            // pagination={{ type: "bullets", clickable: true }}
+                            spaceBetween={12}
+                            slidesPerView={7.5}
+                            autoplay={false}
+                            loop={false}
+                            modules={[Autoplay, Navigation, Pagination]}
+                            breakpoints={{
+                                1400: {
+                                    slidesPerView: 4,
+                                },
+                                1100: {
+                                    slidesPerView: 4,
+                                },
+                                767: {
+                                    slidesPerView: 3,
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    autoplay: false,
+                                },
+                                640: {
+                                    slidesPerView: 2,
+                                    autoplay: false,
+                                },
+                                100: {
+                                    slidesPerView: 1,
+                                    autoplay: false,
+                                },
+                            }}
+                        >
+                            {data.offers.map((singleProduct) =>
+                                <SwiperSlide key={singleProduct.id}>
+                                    <div className={`product-card`} >
+                                        {singleProduct.discount > 0 ?
+                                            <div className="offerTag" style={{ backgroundImage: `url(${offer.src}` }}>
+                                                <p>{singleProduct.discount}% Sale</p>
+                                            </div>
+                                            : null
+                                        }
+
+                                        <i className={`${bookmarks.includes(singleProduct.id) || singleProduct.is_favorite ? 'fa-solid colored' : "fa-regular"} fa-bookmark `} onClick={() => {
+                                            if (bookmarks.includes(singleProduct.id)) {
+
+                                                //handle Add To Favourites 
+                                                secBookmark = [...bookmarks];
+                                                let index = secBookmark.indexOf(singleProduct.id);
+                                                secBookmark.splice(index, 1);
+                                                setBookmarks(secBookmark);
+                                            }
+                                            else {
+                                                //handle Remove From Favourites 
+                                                secBookmark = [...bookmarks];
+                                                secBookmark.push(singleProduct.id);
+                                                setBookmarks(secBookmark);
+                                            }
+                                            console.log(bookmarks);
+                                            console.log(bookmarks.includes(singleProduct.id));
+                                        }
+                                        }></i>
+
+                                        <div className="img-cont">
+                                            <Image src={singleProduct.image} alt='Loopz' width={300} height={300}></Image>
+                                        </div>
+                                        <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                        <span className='productCat'>{singleProduct.category.name}</span>
+                                        <div className="rate">
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 2 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 3 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 4 ? "golden" : ""}`}></i>
+                                            <i className={`fa-solid fa-star ${singleProduct.rate >= 5 ? "golden" : ""}`}></i>
+                                        </div>
+                                        <div className="price-period">
+                                            <h4 className='productPrice'>{singleProduct.price} K.D</h4>
+                                        </div>
+                                        <Link href={''} className='addBtn'>Add To Cart</Link>
+                                    </div>
+                                </SwiperSlide>
+                            )}
+                        </Swiper>
+                    </div>
+                </div>
+                {data.category.map((category) =>
+                    <div className="cat-cat" key={category.id}>
+                        <div className="products-group-title">
+                            <p className="group-title">{category.name}</p>
+                            <Link href={`${category.name}`} className='seeLink'>See all</Link>
+                        </div>
+                        <div className="d-none">
+                        </div>
+                        <div className="cards-cont">
+                            <Swiper
+                                // navigation
+                                // pagination={{ type: "bullets", clickable: true }}
+                                spaceBetween={12}
+                                slidesPerView={7.5}
+                                autoplay={false}
+                                loop={false}
+                                modules={[Autoplay, Navigation, Pagination]}
+                                breakpoints={{
+                                    1400: {
+                                        slidesPerView: 4,
+                                    },
+                                    1100: {
+                                        slidesPerView: 4,
+                                    },
+                                    767: {
+                                        slidesPerView: 3,
+                                    },
+                                    768: {
+                                        slidesPerView: 3,
+                                        autoplay: false,
+                                    },
+                                    640: {
+                                        slidesPerView: 2,
+                                        autoplay: false,
+                                    },
+                                    100: {
+                                        slidesPerView: 1,
+                                        autoplay: false,
+                                    },
+                                }}
+                            >
+                                {category.toys.map((singleProduct) =>
+                                    <SwiperSlide key={singleProduct.id}>
+                                        <div className={`product-card`} >
+                                            {singleProduct.discount > 0 ?
+                                                <div className="offerTag" style={{ backgroundImage: `url(${offer.src}` }}>
+                                                    <p>{singleProduct.discount}% Sale</p>
+                                                </div>
+                                                : null
+                                            }
+
+                                            <i className={`${bookmarks.includes(singleProduct.id) || singleProduct.is_favorite ? 'fa-solid colored' : "fa-regular"} fa-bookmark `} onClick={() => {
+                                                if (bookmarks.includes(singleProduct.id)) {
+
+                                                    //handle Add To Favourites 
+                                                    secBookmark = [...bookmarks];
+                                                    let index = secBookmark.indexOf(singleProduct.id);
+                                                    secBookmark.splice(index, 1);
+                                                    setBookmarks(secBookmark);
+                                                }
+                                                else {
+                                                    //handle Remove From Favourites 
+                                                    secBookmark = [...bookmarks];
+                                                    secBookmark.push(singleProduct.id);
+                                                    setBookmarks(secBookmark);
+                                                }
+                                                console.log(bookmarks);
+                                                console.log(bookmarks.includes(singleProduct.id));
+                                            }
+                                            }></i>
+
+                                            <div className="img-cont">
+                                                <Image src={singleProduct.image} alt='Loopz' width={300} height={300}></Image>
+                                            </div>
+                                            <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                            <span className='productCat'>{category.name}</span>
+                                            <div className="rate">
+                                                <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
+                                                <i className={`fa-solid fa-star ${singleProduct.rate >= 2 ? "golden" : ""}`}></i>
+                                                <i className={`fa-solid fa-star ${singleProduct.rate >= 3 ? "golden" : ""}`}></i>
+                                                <i className={`fa-solid fa-star ${singleProduct.rate >= 4 ? "golden" : ""}`}></i>
+                                                <i className={`fa-solid fa-star ${singleProduct.rate >= 5 ? "golden" : ""}`}></i>
+                                            </div>
+                                            <div className="price-period">
+                                                <h4 className='productPrice'>{singleProduct.price} K.D</h4>
+                                            </div>
+                                            <Link href={''} className='addBtn'>Add To Cart</Link>
+                                        </div>
+
+                                    </SwiperSlide>
+                                )}
+                            </Swiper>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}

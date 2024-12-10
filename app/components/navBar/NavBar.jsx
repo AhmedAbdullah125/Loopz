@@ -6,6 +6,7 @@ import locat from '../../assets/locat.svg'
 import Image from 'next/image'
 import Dropdown from 'react-bootstrap/Dropdown';
 import search from '../../assets/search.svg'
+import Link from 'next/link'
 
 
 export default function NavBar() {
@@ -15,7 +16,7 @@ export default function NavBar() {
             <div className="container">
                 <div className="mainNavBar">
                     <i className="fa-solid fa-bars colorMain"></i>
-                    <Image src={logo} alt='loopz' className='logo'></Image>
+                    <Link href={'/'} className='logoMainLink'><Image src={logo} alt='loopz' className='logo'></Image></Link>
                     <div className="locati">
                         <div className="selec text-black">
                             <Image src={locat} alt='location'></Image>

@@ -1,89 +1,93 @@
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 30px;
+
+    .tab {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 9px 10px;
+        cursor: pointer;
+        position: relative;
+        @include tr;
+        text-align: center;
+
+
+
+        img {
+            width: 20px;
+            height: auto;
+        }
+
+        span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #484C52;
+        }
+    }
+
+    .tab:hover {
+        span {
+            font-size: 18px;
+            font-weight: 700;
+            color: $main;
+        }
+
+        ::after {
+            position: absolute;
+            content: "";
+            width: 35px;
+            height: 2px;
+            border-radius: 0px 0 10px 10px;
+            bottom: -3px;
+            right: 50%;
+            background-color: var(--main-color);
+            transform: translateX(50%);
+        }
+    }
+
+    .avtiveTab {
+        border-bottom: 1px solid $main;
+
+        ::after {
+            position: absolute;
+            content: "";
+            width: 35px;
+            height: 2px;
+            border-radius: 0px 0 10px 10px;
+            bottom: -3px;
+            right: 50%;
+            background-color: var(--main-color);
+            transform: translateX(50%);
+
+        }
+
+        span {
+            font-size: 18px;
+            font-weight: 700;
+            color: $main;
+        }
+    }
+
+}
 .HomeContentHeader {
     .swiper-slide {
         height: auto;
     }
 
-    .tabs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
-        border-bottom: 1px solid #e7e7e7;
-        margin-bottom: 30px;
-
-        .tab {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0 9px 10px;
-            cursor: pointer;
-            position: relative;
-            @include tr;
-
-
-
-            img {
-                width: 20px;
-                height: auto;
-            }
-
-            span {
-                font-size: 18px;
-                font-weight: 400;
-                color: #484C52;
-            }
-        }
-
-        .tab:hover {
-            span {
-                font-size: 18px;
-                font-weight: 700;
-                color: $main;
-            }
-
-            ::after {
-                position: absolute;
-                content: "";
-                width: 35px;
-                height: 2px;
-                border-radius: 0px 0 10px 10px;
-                bottom: -3px;
-                right: 50%;
-                background-color: var(--main-color);
-                transform: translateX(50%);
-            }
-        }
-
-        .avtiveTab {
-            border-bottom: 1px solid $main;
-
-            ::after {
-                position: absolute;
-                content: "";
-                width: 35px;
-                height: 2px;
-                border-radius: 0px 0 10px 10px;
-                bottom: -3px;
-                right: 50%;
-                background-color: var(--main-color);
-                transform: translateX(50%);
-
-            }
-
-            span {
-                font-size: 18px;
-                font-weight: 700;
-                color: $main;
-            }
-        }
-
-    }
 
     .products {
         display: flex;
         flex-direction: column;
         gap: 12px;
         margin-bottom: 60px;
+        .cat-cat{
+            margin-bottom: 24px;
+        }
 
         .products-group-title {
             display: flex;
@@ -385,5 +389,20 @@
 
     .addBtn:hover {
         transform: scale(1.1);
+    }
+}
+
+@media (max-width: 767px) {
+    .tabs{
+        gap:15px;
+        .tab{
+            span{
+                font-size: 14px;
+
+            }
+        }
+        .tab:hover span{
+            font-size: 15px;
+        }
     }
 }
