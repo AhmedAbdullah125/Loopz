@@ -163,7 +163,6 @@ export default function HomeContent() {
         getHomeData();
 
     }, []);
-    console.log(data);
     return (
         <div className="">
             {loading ? <Loading></Loading> :
@@ -180,7 +179,6 @@ export default function HomeContent() {
                                 }
                                 else {
                                     setData(rentals)
-                                    console.log(index)
                                 }
                             }}>
                                 <Image className='' alt='loopz' src={product.img}></Image>
@@ -257,8 +255,6 @@ export default function HomeContent() {
                                                                     secBookmark.push(singleProduct.id);
                                                                     setBookmarks(secBookmark);
                                                                 }
-                                                                console.log(bookmarks);
-                                                                console.log(bookmarks.includes(singleProduct.id));
                                                             }
                                                             }></i>
 
@@ -377,8 +373,6 @@ export default function HomeContent() {
                                                                 secBookmark.push(singleProduct.id);
                                                                 setBookmarks(secBookmark);
                                                             }
-                                                            console.log(bookmarks);
-                                                            console.log(bookmarks.includes(singleProduct.id));
                                                         }
                                                         }></i>
 
@@ -497,8 +491,6 @@ export default function HomeContent() {
                                                                     secBookmark.push(singleProduct.id);
                                                                     setBookmarks(secBookmark);
                                                                 }
-                                                                console.log(bookmarks);
-                                                                console.log(bookmarks.includes(singleProduct.id));
                                                             }
                                                             }></i>
 
@@ -619,8 +611,6 @@ export default function HomeContent() {
                                                         //             secBookmark.push(singleProduct.id);
                                                         //             setBookmarks(secBookmark);
                                                         //         }
-                                                        //         console.log(bookmarks);
-                                                        //         console.log(bookmarks.includes(singleProduct.id));
                                                         //     }
                                                         //     }></i>
 

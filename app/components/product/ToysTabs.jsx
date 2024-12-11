@@ -7,13 +7,13 @@ import img4 from '../../assets/products/features/4.svg'
 import img5 from '../../assets/products/features/5.svg'
 import img6 from '../../assets/products/features/6.svg'
 import Image from 'next/image'
-export default function Tabs({ product }) {
+export default function ToysTabs({ product }) {
     let tabs = [
         {
             id: 1, title: "Service Overview", feats:
                 [
                     { status: "p" },
-                    { data: product.overview },
+                    { data: product.description },
                 ]
         }, {
             id: 2, title: "Vendor Policy"
@@ -61,13 +61,13 @@ export default function Tabs({ product }) {
                     <p className='dataP'>{tabs[selectedIndex].feats[1].data}</p>
                     : tabs[selectedIndex].feats[0].status == "grid" ?
                         <div className="grid-cont">
-                            {tabs[selectedIndex].feats[1].data.map((ele, index) =>
+                            {product.features.map((ele, index) =>
                                 <div className="feature" key={index}>
                                     <div className="question">
-                                        <Image src={ele.img} alt='loopz'></Image>
-                                        <p className='questionP'>{ele.q}</p>
+                                        {/* <Image src={ele.img} alt='loopz'></Image> */}
+                                        <p className='questionP'>{ele.key}</p>
                                     </div>
-                                    <p className='answar'>{ele.a}</p>
+                                    <p className='answar'>{ele.value}</p>
                                 </div>
                             )}
                         </div>

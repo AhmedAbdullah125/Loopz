@@ -2,8 +2,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 export default function BreadCrampp(data) {
-    console.log(data.data.category.type);
-    let [type, setType] = useState(data.data.category.type)
+    let [type, setType] = useState(data.title)
 
     const word = type
 

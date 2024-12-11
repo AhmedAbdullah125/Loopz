@@ -12,7 +12,6 @@ import offer from '../../assets/Home/offer.svg'
 
 export default function HomeRentals(rentals) {
     let data = rentals.rentals
-    console.log(data);
     
     let [bookmarks, setBookmarks] = useState([]); //bookMarks array
     let secBookmark = [];
@@ -85,8 +84,6 @@ export default function HomeRentals(rentals) {
                                                 secBookmark.push(singleProduct.id);
                                                 setBookmarks(secBookmark);
                                             }
-                                            console.log(bookmarks);
-                                            console.log(bookmarks.includes(singleProduct.id));
                                         }
                                         }></i>
 
@@ -178,8 +175,6 @@ export default function HomeRentals(rentals) {
                                                         secBookmark.push(singleProduct.id);
                                                         setBookmarks(secBookmark);
                                                     }
-                                                    console.log(bookmarks);
-                                                    console.log(bookmarks.includes(singleProduct.id));
                                                 }
                                                 }></i>
 

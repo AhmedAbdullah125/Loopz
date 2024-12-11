@@ -15,7 +15,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 export default function ProducrSwiper(data) {
     let [product, setProduct] = useState(data.product);
-    console.log(product);
 
     let [selectedImg, setSelectedImg] = useState(product.image);
     return (
@@ -36,22 +35,22 @@ export default function ProducrSwiper(data) {
                         slidesPerView: 6,
                     },
                     1100: {
-                        slidesPerView: 6,
+                        slidesPerView: 4,
                     },
                     767: {
                         slidesPerView: 6,
                     },
                     768: {
-                        slidesPerView: 5,
+                        slidesPerView: 3,
                         autoplay: false,
                     },
                     640: {
-                        slidesPerView: 6,
+                        slidesPerView: 4,
                         autoplay: false,
                     },
 
                     100: {
-                        slidesPerView: 5,
+                        slidesPerView: 3,
                         autoplay: false,
                     },
                 }}

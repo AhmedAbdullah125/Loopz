@@ -1540,6 +1540,12 @@ header .cart-balance {
   color: var(--black-color);
 }
 
+@media screen and (max-width: 767px) {
+  .ProductDataWrapper {
+    flex-direction: column;
+  }
+}
+
 .ProducrSwiper {
   margin-bottom: 48px;
   max-width: 482px;
@@ -1682,7 +1688,7 @@ header .cart-balance {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 48px;
-  gap: 10px;
+  gap: 12px;
 }
 .ProductDetails .product-name {
   color: var(--black-color);
@@ -1785,6 +1791,44 @@ header .cart-balance {
   text-align: center;
   font-size: 18px;
   font-weight: 400;
+}
+
+.tick-description h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-color);
+  margin-bottom: 16px;
+}
+.tick-description .desk-cont {
+  border: 1px solid rgba(28, 28, 28, 0.1);
+  border-radius: 10px;
+  padding: 33px 26px;
+  background-color: var(--white-color);
+}
+.tick-description .desk-cont li {
+  margin-bottom: 18px;
+}
+
+.ticket-productDetails {
+  justify-content: unset;
+}
+.ticket-productDetails .prod-price {
+  margin-bottom: 8px;
+}
+.ticket-productDetails .prod-count {
+  margin-bottom: 23px;
+}
+.ticket-productDetails .tickets-text {
+  font-size: 20px;
+  font-weight: 400;
+  color: #484C52;
+  margin-bottom: 0;
+}
+.ticket-productDetails .tickets-persons {
+  font-size: 20px;
+  font-weight: 300;
+  color: #484C52;
+  margin-bottom: 0;
 }
 
 .productFeatures .tabs {

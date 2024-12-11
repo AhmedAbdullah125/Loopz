@@ -82,15 +82,13 @@ export default function HomeToys(toys) {
                                                 secBookmark.push(singleProduct.id);
                                                 setBookmarks(secBookmark);
                                             }
-                                            console.log(bookmarks);
-                                            console.log(bookmarks.includes(singleProduct.id));
                                         }
                                         }></i>
 
                                         <div className="img-cont">
                                             <Image src={singleProduct.image} alt='Loopz' width={144} height={144}></Image>
                                         </div>
-                                        <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                        <Link href={`/toy?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
                                         <span className='productCat'>{singleProduct.category.name}</span>
                                         <div className="rate">
                                             <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
@@ -177,15 +175,13 @@ export default function HomeToys(toys) {
                                                 secBookmark.push(singleProduct.id);
                                                 setBookmarks(secBookmark);
                                             }
-                                            console.log(bookmarks);
-                                            console.log(bookmarks.includes(singleProduct.id));
                                         }
                                         }></i>
 
                                         <div className="img-cont">
                                             <Image src={singleProduct.image} alt='Loopz' width={300} height={300}></Image>
                                         </div>
-                                        <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                        <Link href={`/toy?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
                                         <span className='productCat'>{singleProduct.category.name}</span>
                                         <div className="rate">
                                             <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>
@@ -270,15 +266,13 @@ export default function HomeToys(toys) {
                                                     secBookmark.push(singleProduct.id);
                                                     setBookmarks(secBookmark);
                                                 }
-                                                console.log(bookmarks);
-                                                console.log(bookmarks.includes(singleProduct.id));
                                             }
                                             }></i>
 
                                             <div className="img-cont">
                                                 <Image src={singleProduct.image} alt='Loopz' width={300} height={300}></Image>
                                             </div>
-                                            <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                            <Link href={`/toy?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
                                             <span className='productCat'>{category.name}</span>
                                             <div className="rate">
                                                 <i className={`fa-solid fa-star ${singleProduct.rate >= 1 ? "golden" : ""}`}></i>

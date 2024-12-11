@@ -57,10 +57,6 @@ export default function HomeContent() {
         getHomeData();
 
     }, []);
-    console.log(toys);
-    console.log(rentals);
-    console.log(tickets);
-    
     
     return (
         <div className='container HomeContentHeader'>
@@ -69,7 +65,6 @@ export default function HomeContent() {
                     <div key={product.id} className={`tab ${selectedTab == product.title ? 'avtiveTab' : ""}`} onClick={() => {
                         setSelectedIndex(index);
                         setSelectedTab(product.title);
-                        console.log(product.title);
                         
                     }}>
                         <Image className='' alt='loopz' src={product.img}></Image>

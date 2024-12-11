@@ -12,7 +12,6 @@ import offer from '../../assets/Home/offer.svg'
 
 export default function HomeTickets(tickets) {
     let data = tickets.tickets
-    console.log(data);
     let [bookmarks, setBookmarks] = useState([]); //bookMarks array
     let secBookmark = [];
     return (
@@ -69,7 +68,7 @@ export default function HomeTickets(tickets) {
                                             </div>
                                         </div>
                                         <div className="data-cont">
-                                            <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                            <Link href={`/ticket?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
                                             <div className="feature-cont">
                                                 {parse(singleProduct.description)}
                                             </div>
@@ -135,7 +134,7 @@ export default function HomeTickets(tickets) {
                                             </div>
                                         </div>
                                         <div className="data-cont">
-                                            <Link href={`/product?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
+                                            <Link href={`/ticket?id=${singleProduct.id}`} className="productName">{singleProduct.name}</Link>
                                             <div className="feature-cont">
                                                 {parse(singleProduct.description)}
                                             </div>

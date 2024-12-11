@@ -23,10 +23,11 @@
     }
 }
 
-// .ProductDataWrapper {
-//     // display: flex;
-//     // gap: 38px;
-// }
+.ProductDataWrapper {
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+    }
+}
 
 .ProducrSwiper {
     margin-bottom: 48px;
@@ -155,25 +156,29 @@
             font-size: 14px;
             font-weight: 400;
             color: #484C52;
-            
+
         }
 
     }
-    .View-More{
+
+    .View-More {
         padding: 10px 40px 0;
         display: flex;
         align-items: center;
         gap: 10px;
         color: $main;
         cursor: pointer;
-        span{
+
+        span {
             font-size: 14px;
             font-weight: 400;
             // color: $main;
         }
-        &:hover{
+
+        &:hover {
             color: $black;
-            i{
+
+            i {
                 transform: translateX(5px);
             }
         }
@@ -190,7 +195,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 48px;
-    gap: 10px;
+    gap: 12px;
 
 
     .product-name {
@@ -311,6 +316,49 @@
         text-align: center;
         font-size: 18px;
         font-weight: 400;
+    }
+}
+.tick-description{
+    h2{
+        font-size: 24px;
+        font-weight: 500;
+        color: $main;
+        margin-bottom: 16px;
+
+    }
+    .desk-cont{
+        border: 1px solid rgba(28, 28, 28, 0.1);
+        border-radius: 10px;
+        padding: 33px 26px;
+        background-color: $white;
+        li{
+            margin-bottom: 18px;
+        }
+    }
+}
+.ticket-productDetails {
+    justify-content: unset;
+
+    .prod-price {
+        margin-bottom: 8px;
+    }
+
+    .prod-count {
+        margin-bottom: 23px;
+    }
+
+    .tickets-text {
+        font-size: 20px;
+        font-weight: 400;
+        color: #484C52;
+        margin-bottom: 0;
+    }
+
+    .tickets-persons {
+        font-size: 20px;
+        font-weight: 300;
+        color: #484C52;
+        margin-bottom: 0;
     }
 }
 

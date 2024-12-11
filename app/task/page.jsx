@@ -43,9 +43,6 @@
 //                             onMouseDown={() => {
 //                                 firstPerson = person;
 //                                 firstindex = index;
-//                                 console.log("first Person");
-//                                 console.log(firstPerson);
-//                                 console.log(placesCopy)
 //                             }}
 //                             onMouseUp={() => {
 //                                 firstindex = null;
@@ -58,8 +55,7 @@
 //                                     if (firstindex != index) {
 //                                         secondPerson = person;
 //                                         secondindex = index;
-//                                         console.log("second");
-//                                         console.log(secondPerson);
+//                                         (secondPerson);
 //                                         placesCopy[firstindex] = secondPerson;
 //                                         placesCopy[secondindex] = firstPerson;
 //                                         firstindex = null;
@@ -67,7 +63,6 @@
 //                                         firstPerson = null;
 //                                         secondPerson = null;
 //                                         setPlaces(placesCopy)
-//                                         console.log(places)
 
 //                                     }
 //                                 }
