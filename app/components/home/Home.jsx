@@ -15,17 +15,7 @@ export default function HomeContent() {
     let [selectedIndex, setSelectedIndex] = useState(0);
     let [bookmarks, setBookmarks] = useState([]); //bookMarks array
     let secBookmark = [];
-    let products = [
-        {
-            id: "01", title: "Toys", img: cube
-        },
-        {
-            id: "02", title: "Rentals", img: Rentals
-        },
-        {
-            id: "03", title: "Tickets", img: Tickets
-        }
-    ]
+    let products = [  { id: "01", title: "Toys", img: cube }, { id: "02", title: "Rentals", img: Rentals }, { id: "03", title: "Tickets", img: Tickets  }]
     const [data, setData] = useState(null);  // State to store fetched data
     const [toys, setToys] = useState(null);  // State to store fetched data
     const [rentals, setRentals] = useState(null);  // State to store fetched data
@@ -55,9 +45,7 @@ export default function HomeContent() {
             }
         };
         getHomeData();
-
     }, []);
-    
     return (
         <div className='container HomeContentHeader'>
             <div className="tabs" >

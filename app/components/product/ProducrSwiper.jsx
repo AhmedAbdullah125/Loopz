@@ -1,12 +1,5 @@
 'use client'
-import Link from 'next/link'
 import React, { useState } from 'react'
-import img1 from '../../assets/products/1.jpg'
-import img2 from '../../assets/products/2.jpg'
-import img3 from '../../assets/products/3.jpg'
-import img4 from '../../assets/products/4.jpg'
-import img5 from '../../assets/products/5.jpg'
-import img6 from '../../assets/products/6.jpg'
 import Image from 'next/image'
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";

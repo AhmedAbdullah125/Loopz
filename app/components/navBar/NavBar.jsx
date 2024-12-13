@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import UpperNavBar from './UpperNavBar'
 import logo from '../../assets/loops.svg'
 import locat from '../../assets/locat.svg'
@@ -7,9 +7,23 @@ import Image from 'next/image'
 import Dropdown from 'react-bootstrap/Dropdown';
 import search from '../../assets/search.svg'
 import Link from 'next/link'
-
+import { CounterContext } from '@/app/Context/CounterContext'
 
 export default function NavBar() {
+    const [cart, setCart] = useState([])
+    let {cartCont, cartHandling} = useContext(CounterContext);
+    console.log(cartCont);
+    console.log(JSON.parse(localStorage.getItem('cart')));
+    
+    useEffect(() => {
+        if(localStorage.getItem('cart')){
+            setCart(JSON.parse(localStorage.getItem('cart')))
+        }
+        else{
+            localStorage.setItem('cart', JSON.stringify([]))
+        }
+    }, [])
+
     return (
         <header>
             <UpperNavBar></UpperNavBar>
@@ -55,10 +69,10 @@ export default function NavBar() {
                         <p>Favourits</p>
                     </div>
                     <div className="cart-balance">
-                        <div className="cart">
+                        <Link href={'/cart'} className="cart">
                             <i className="fa-solid fa-cart-shopping"></i>
-                            <span>2</span>
-                        </div>
+                            <span>{cartCont.length}</span>
+                        </Link>
                         <div className="balance">
                             <span>324,000</span>
                             <span>KD</span>

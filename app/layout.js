@@ -8,6 +8,7 @@ import "./globals.css";
 import './style/main.css';
 import NavBar from "./components/navBar/NavBar";
 import Footer from "./components/footer/Footer";
+import { CounterProvider } from "./Context/CounterContext";
 
 
 const geistSans = localFont({
@@ -31,9 +32,11 @@ export default function RootLayout({ children }) {
     <html lang="en" dir="ltr">
       <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning={true}>
         <ReactQueryProvider>
-          <NavBar />
-          {children}
-          <Footer />
+          <CounterProvider>
+            <NavBar />
+            {children}
+            <Footer />
+          </CounterProvider>
         </ReactQueryProvider>
       </body>
     </html>

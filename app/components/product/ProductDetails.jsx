@@ -73,7 +73,7 @@ export default function ProductDetails({ product, title }) {
                 title == "Ticket" ? null :
                     <p className='policies'> Read More About <Link href={'/policies'}><span>Return Policy</span></Link>  </p>
             }
-            <Link className='cartLink' href={''}>{title == "Ticket" ? "Purchase" : "Add to Cart"}</Link>
+            <Link className='cartLink' href={''}>{title == "toys" ? "Add to Cart" :"Purchase" }</Link>
         </div>
     )
 }
