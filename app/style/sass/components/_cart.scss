@@ -7,6 +7,11 @@
     }
     .prods{
         display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .prods-heading{
+        display: flex;
         align-items: center;
         justify-content: space-between;
         @include max-991{
@@ -17,12 +22,28 @@
             font-weight: 400;
             margin-bottom: 0;
         }
-        h3{
+        button{
             font-size: 18px;
             font-weight: 400;
             margin-bottom: 0;
             color: #C71919;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
         }
     }
-    
+    .cart-products{
+        display: flex;
+        flex-direction: column;
+        padding: 22px 40px;
+        border: 1px solid rgba(28, 28, 28, 0.1);
+        border-radius: 10px;
+        background-color: $white;
+        @include max-991{
+            padding: 15px 15px;
+        }
+        .cart-product{
+        }
+    }
 }

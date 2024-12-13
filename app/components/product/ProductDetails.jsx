@@ -31,8 +31,13 @@ export default function ProductDetails({ product, title }) {
                         </div>
                     </>
             }
-            <p className='tickets-text'>{product.text}</p>
-            <p className='tickets-persons'>{product.persons} person</p>
+            {
+                title !== "Ticket" ? null :
+                    <>
+                        <p className='tickets-text'>{product.text}</p>
+                        <p className='tickets-persons'>{product.persons} person</p>
+                    </>
+            }
             <p className='prod-price'>{product.price} K.D</p>
             <div className="count-cont">
                 <div className="prod-count">
@@ -73,7 +78,7 @@ export default function ProductDetails({ product, title }) {
                 title == "Ticket" ? null :
                     <p className='policies'> Read More About <Link href={'/policies'}><span>Return Policy</span></Link>  </p>
             }
-            <Link className='cartLink' href={''}>{title == "toys" ? "Add to Cart" :"Purchase" }</Link>
+            <Link className='cartLink' href={''}>{title == "toys" ? "Add to Cart" : "Purchase"}</Link>
         </div>
     )
 }

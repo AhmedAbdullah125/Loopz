@@ -90,7 +90,21 @@
         color: #C3C3C3;
     }
 }
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
 
+    i {
+        font-size: 15px;
+        color: #C3C3C3;
+    }
+
+    .golden {
+        color: #FAC950;
+    }
+}
 .product-review {
     border: 1px solid rgba(28, 28, 28, 0.1);
     border-radius: 10px;
