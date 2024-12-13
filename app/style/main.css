@@ -1940,4 +1940,35 @@ header .cart-balance {
   .grid-cont .feature .question {
     width: 50%;
   }
+}
+.cart-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .cart-body {
+    grid-template-columns: 1fr;
+  }
+}
+.cart-body .prods {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 991px) {
+  .cart-body .prods {
+    flex-direction: column;
+  }
+}
+.cart-body .prods h2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.cart-body .prods h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #C71919;
 }/*# sourceMappingURL=main.css.map */

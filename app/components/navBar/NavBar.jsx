@@ -10,19 +10,19 @@ import Link from 'next/link'
 import { CounterContext } from '@/app/Context/CounterContext'
 
 export default function NavBar() {
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
     let {cartCont, cartHandling} = useContext(CounterContext);
     console.log(cartCont);
-    console.log(JSON.parse(localStorage.getItem('cart')));
+    // console.log(JSON.parse(localStorage.getItem('cart')));
     
-    useEffect(() => {
-        if(localStorage.getItem('cart')){
-            setCart(JSON.parse(localStorage.getItem('cart')))
-        }
-        else{
-            localStorage.setItem('cart', JSON.stringify([]))
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(localStorage.getItem('cart')){
+    //         setCart(JSON.parse(localStorage.getItem('cart')))
+    //     }
+    //     else{
+    //         localStorage.setItem('cart', JSON.stringify([]))
+    //     }
+    // }, [])
 
     return (
         <header>

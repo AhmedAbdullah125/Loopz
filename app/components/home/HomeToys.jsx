@@ -13,7 +13,6 @@ import e from 'cors';
 
 export default function HomeToys(toys) {
     let { cartCont, cartHandling } = useContext(CounterContext);
-
     let data = toys.toys
     let [bookmarks, setBookmarks] = useState([]); //bookMarks array
     let secBookmark = [];

@@ -1,0 +1,28 @@
+.cart-body{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    @include max-991{
+        grid-template-columns: 1fr;
+    }
+    .prods{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include max-991{
+            flex-direction: column;
+        }
+        h2{
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        h3{
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 0;
+            color: #C71919;
+        }
+    }
+    
+}
