@@ -4,6 +4,9 @@ import Link from 'next/link';
 import React, { useContext, useState } from 'react'
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,6 +15,16 @@ import { CounterContext } from '@/app/Context/CounterContext';
 import e from 'cors';
 
 export default function HomeToys(toys) {
+
+    const popover = (
+        <Popover id="popover-basic">
+            {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
+            <Popover.Body>
+                added
+            </Popover.Body>
+        </Popover>
+    );
+
     let { cartCont, cartHandling } = useContext(CounterContext);
     let data = toys.toys
     let [bookmarks, setBookmarks] = useState([]); //bookMarks array
@@ -21,6 +34,7 @@ export default function HomeToys(toys) {
     for (let i = 0; i < data.category.length; i++) {
         newData.push({ name: data.category[i].name, details: data.category[i].toys })
     }
+    let[addStatus,setAddStatus]=useState('Successfully Added to cart');
     return (
         <div className='home-toys'>
             <div className="products">
@@ -111,25 +125,49 @@ export default function HomeToys(toys) {
                                                         <h4 className='productPrice'>{singleProduct.price} K.D</h4>
 
                                                     </div>
+                                                    <OverlayTrigger trigger="focus" placement="right" overlay={
+                                                        (
+                                                            <Popover id="popover-basic">
+                                                                {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
+                                                                <Popover.Body>
+                                                                    {addStatus}
+                                                                </Popover.Body>
+                                                            </Popover>
+                                                        )
+                                                    }>
                                                     <button className='addBtn'
                                                         onClick={() => {
+                                                            for (let index = 0; index < cartCont.length; index++) {
+                                                                if (cartCont[index].id === singleProduct.id) {
+                                                                    console.log("Already added");
+                                                                    setAddStatus('Already Added to cart');
+                                                                    return;
+                                                                }
+
+                                                            }
                                                             if (cartCont.includes(singleProduct)) {
                                                                 console.log("Already added");
+                                                                console.log(cartCont);
 
                                                             }
                                                             else {
+                                                                console.log(cartCont);
+
                                                                 setCart([...cart, singleProduct]);
                                                                 if (JSON.parse(localStorage.getItem('cart')) === null) {
                                                                     localStorage.setItem('cart', JSON.stringify([]));
                                                                 }
                                                                 else {
-                                                                    localStorage.setItem('cart', JSON.stringify([...JSON.parse(localStorage.getItem('cart')), {...singleProduct,Quantity:1}]));
+                                                                    localStorage.setItem('cart', JSON.stringify([...JSON.parse(localStorage.getItem('cart')), { ...singleProduct, Quantity: 1 }]));
                                                                 }
-                                                                cartHandling([...cartCont, {...singleProduct,Quantity:1}]);
+                                                                cartHandling([...cartCont, { ...singleProduct, Quantity: 1 }]);
+                                                                setAddStatus('Successfully Added to cart');
                                                             }
 
                                                         }}
                                                     >Add To Cart</button>
+                                                    </OverlayTrigger>
+                                                    
                                                 </div>
                                             </SwiperSlide>
                                         )}

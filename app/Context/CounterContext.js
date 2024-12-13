@@ -7,6 +7,7 @@ export function CounterProvider({ children }) {
     let [cartCont, setCartCont] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
     function cartHandling(product) {
         setCartCont(product);
+        localStorage.setItem('cart', JSON.stringify(product));
     }
     return (
         <CounterContext.Provider value={{ cartCont, cartHandling }}>
