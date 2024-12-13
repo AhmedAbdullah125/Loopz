@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 // import { CounterContext } from '@/app/Context/CounterContext';
 import { CounterContext } from '@/app/Context/CounterContext'
 
-export default function page() {
+export default function CartBody() {
     let {cartCont, cartHandling} = useContext(CounterContext);
     console.log(cartCont);
     return (
