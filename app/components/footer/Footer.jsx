@@ -6,7 +6,7 @@ import yout from '../../assets/footer/yout.svg'
 import tik from '../../assets/footer/tik.png'
 import apple from '../../assets/footer/Apple.svg'
 import playStore from '../../assets/footer/play.svg'
-import raiyan from '../../assets/home/raiyan.svg'
+import raiyan from '../../assets/home/raiyan.png'
 import Link from 'next/link'
 
 
