@@ -6,10 +6,8 @@ import yout from '../../assets/footer/yout.svg'
 import tik from '../../assets/footer/tik.png'
 import apple from '../../assets/footer/Apple.svg'
 import playStore from '../../assets/footer/play.svg'
-// import raiyan from '../../assets/home/raiyan.png'
+import raiyan from '../../assets/home/raiyan.png'
 import Link from 'next/link'
-
-
 
 export default function Footer() {
   return (
@@ -80,7 +78,7 @@ export default function Footer() {
           <span className='copy'>© Copyright 2024 By Loopz</span>
           <div className="raiyan">
             <span>Developed By</span>
-            {/* <Image src={raiyan} alt='loopz'></Image> */}
+            <Image src={raiyan} alt='loopz'></Image>
           </div>
         </div>
       </div>
