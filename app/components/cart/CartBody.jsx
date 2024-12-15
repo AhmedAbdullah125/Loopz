@@ -11,6 +11,8 @@ export default function CartBody() {
     let [bookmarks, setBookmarks] = useState([]);
     let secBookmark = [...bookmarks];
     let totalPrice = 0;
+    let [worningDisplay,setWorningDisplay] = useState(false);
+    let tax = 1;
     for (let index = 0; index < cartCont.length; index++) {
         totalPrice += Number(cartCont[index].price) * Number(cartCont[index].Quantity);
 
@@ -103,14 +105,21 @@ export default function CartBody() {
                     </div>
                     <div className="flex-dit">
                         <div className="head">Total VAT</div>
-                        <div className="value">1 K.D</div>
+                        <div className="value">{tax} K.D</div>
                     </div>
                 </div>
                 <div className="total">
                     <div className="head">Total</div>
-                    <div className="value">{totalPrice + 1} K.D</div>
+                    <div className="value">{totalPrice + tax} K.D</div>
                 </div>
-                <Link href={'/checkout'} className='addBtn'>Checkout</Link>
+                <Link href={cartCont.length>0?'/checkout':"/cart"} className='addBtn'
+                onClick={() => {
+                   if (cartCont.length==0) {
+                    setWorningDisplay(true)
+                   }
+                }}
+                >Checkout</Link>
+                <p className='worning' style={{display:worningDisplay?'block':'none'}}>Please Add Products To Cart</p>
             </div>
         </div>
     )

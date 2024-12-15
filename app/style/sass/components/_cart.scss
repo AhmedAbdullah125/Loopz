@@ -228,12 +228,15 @@
         .addBtn {
             background-color: $main;
             color: $white;
-
+            margin-bottom: 10px;
             &:hover {
                 background-color: transparent;
                 color: $main;
                 transform: scale(1.05);
             }
+        }
+        p{
+            color: #C71919;
         }
     }
 
