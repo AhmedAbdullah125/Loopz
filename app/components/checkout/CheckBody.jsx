@@ -19,6 +19,7 @@ export default function CartBody() {
     let tax = 1;
     let discount = -3;
     let ShippingPrice = 2;
+
     // Calculate the total price of items in the cart based on their quantity and price
     for (let index = 0; index < cartCont.length; index++) {
         totalPrice += Number(cartCont[index].price) * Number(cartCont[index].Quantity);
@@ -117,6 +118,7 @@ export default function CartBody() {
                                         </div>
                                         {
                                             totalPrice + tax > 100 ?
+
                                                 <div className="r-side">
                                                     <div className="img-cont">
                                                         {/* Static image for the TAA */}

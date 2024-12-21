@@ -13,7 +13,6 @@ export default function CartBody() {
     let totalPrice = 0;
     let [worningDisplay,setWorningDisplay] = useState(false);
     let tax = 1;
-    
     for (let index = 0; index < cartCont.length; index++) {
         totalPrice += Number(cartCont[index].price) * Number(cartCont[index].Quantity);
 
