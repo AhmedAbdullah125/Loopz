@@ -349,16 +349,16 @@ cursor:pointer;
     }
 }
 
-.loader {
-    width: 10px;
-    height: 10px;
-    border: 2px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-}
+// .loader {
+//     width: 10px;
+//     height: 10px;
+//     border: 2px solid #FFF;
+//     border-bottom-color: transparent;
+//     border-radius: 50%;
+//     display: inline-block;
+//     box-sizing: border-box;
+//     animation: rotation 1s linear infinite;
+// }
 
 @media (max-width: 550px) {
     .category .moreTnan {

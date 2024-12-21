@@ -212,6 +212,9 @@
             color: $black;
             margin-bottom: 0;
         }
+        .dis-value{
+            color: #C71919;
+        }
 
         .total {
             margin-bottom: 40px;
@@ -228,12 +231,15 @@
         .addBtn {
             background-color: $main;
             color: $white;
-
+            margin-bottom: 10px;
             &:hover {
                 background-color: transparent;
                 color: $main;
                 transform: scale(1.05);
             }
+        }
+        p{
+            color: #C71919;
         }
     }
 

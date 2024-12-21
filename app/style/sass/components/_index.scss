@@ -227,16 +227,17 @@
             position: absolute;
             bottom: 0;
             inset-inline-end: 13px;
-            display: flex;
             flex-direction: column;
             aspect-ratio: 1 / 1;
             padding: 8px;
             border-radius: 50%;
             min-height: 50px;
             background-color: $main;
-            align-items: center;
             bottom: -25px;
             color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             .num {
                 font-size: 16px;
