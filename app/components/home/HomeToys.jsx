@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import offer from '../../assets/Home/offer.svg'
 import { CounterContext } from '@/app/Context/CounterContext';
 import e from 'cors';
+import { toast } from 'sonner';
 
 export default function HomeToys(toys) {
 
@@ -59,24 +60,24 @@ export default function HomeToys(toys) {
                                         modules={[Autoplay, Navigation, Pagination]}
                                         breakpoints={{
                                             1400: {
-                                                slidesPerView: 4,
+                                                slidesPerView: 4.2,
                                             },
                                             1100: {
-                                                slidesPerView: 4,
+                                                slidesPerView: 4.2,
                                             },
                                             767: {
-                                                slidesPerView: 3,
+                                                slidesPerView: 3.2,
                                             },
                                             768: {
-                                                slidesPerView: 3,
+                                                slidesPerView: 3.2,
                                                 autoplay: false,
                                             },
                                             640: {
-                                                slidesPerView: 2,
+                                                slidesPerView: 2.1,
                                                 autoplay: false,
                                             },
                                             100: {
-                                                slidesPerView: 1,
+                                                slidesPerView: 1.1,
                                                 autoplay: false,
                                             },
                                         }}
@@ -125,22 +126,18 @@ export default function HomeToys(toys) {
                                                         <h4 className='productPrice'>{singleProduct.price} K.D</h4>
 
                                                     </div>
-                                                    <OverlayTrigger trigger="focus" placement="right" overlay={
-                                                        (
-                                                            <Popover id="popover-basic">
-                                                                {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
-                                                                <Popover.Body>
-                                                                    {addStatus}
-                                                                </Popover.Body>
-                                                            </Popover>
-                                                        )
-                                                    }>
+                                                    
                                                     <button className='addBtn'
                                                         onClick={() => {
+                                                            
                                                             for (let index = 0; index < cartCont.length; index++) {
                                                                 if (cartCont[index].id === singleProduct.id) {
                                                                     console.log("Already added");
                                                                     setAddStatus('Already Added to cart');
+                                                                    toast("Already Added to cart", {
+                                                                        description: "This item is already added to your cart",
+                                                                        
+                                                                      })
                                                                     return;
                                                                 }
 
@@ -148,6 +145,10 @@ export default function HomeToys(toys) {
                                                             if (cartCont.includes(singleProduct)) {
                                                                 console.log("Already added");
                                                                 console.log(cartCont);
+                                                                toast("Already Added to cart", {
+                                                                    description: "This item is already added to your cart",
+                                                                    
+                                                                  })
 
                                                             }
                                                             else {
@@ -162,11 +163,14 @@ export default function HomeToys(toys) {
                                                                 }
                                                                 cartHandling([...cartCont, { ...singleProduct, Quantity: 1 }]);
                                                                 setAddStatus('Successfully Added to cart');
+                                                                toast("Successfully Added to cart", {
+                                                                    description: "This item is successfully added to your cart",
+                                                                    
+                                                                  })
                                                             }
 
                                                         }}
                                                     >Add To Cart</button>
-                                                    </OverlayTrigger>
                                                     
                                                 </div>
                                             </SwiperSlide>

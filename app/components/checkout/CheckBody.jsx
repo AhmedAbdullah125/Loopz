@@ -25,7 +25,6 @@ export default function CartBody() {
         totalPrice += Number(cartCont[index].price) * Number(cartCont[index].Quantity);
     }
 
-    console.log(cartCont); // Debugging: Log the cart content for verification
 
     // Payment methods available for the checkout process
     let methods = [{ id: 1, name: "Credit Card" }, { id: 2, name: "Wallet" }, { id: 3, name: "Cash on Delivery" }];
@@ -93,7 +92,14 @@ export default function CartBody() {
                             <div key={methd.id} className={`tab ${selectedTab == methd.id ? 'avtiveTab' : ""}`} onClick={() => {
                                 setSelectedTab(methd.id); // Update the selected tab
                             }}>
-                                <span>{methd.name}</span>
+                                <div className="tab-bullet-cont">
+                                    <div className="bullet">
+                                        {
+                                            selectedTab == methd.id ? <div className="bullet-dot"></div> : null
+                                        }
+                                    </div>
+                                    <span>{methd.name}</span>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -102,7 +108,52 @@ export default function CartBody() {
                     <div className="methods-body">
                         {
                             selectedTab == 1 ?
-                                <div className="credit-card method-body">Credit Card</div>
+                                <div className="credit-card method-body">
+                                    <form action="">
+                                        <div className="input-cont">
+                                            <label htmlFor="cardNumber">Card Number</label>
+                                            <input type="text" placeholder='0000 0000 0000 0000' maxLength={19}
+                                                onKeyDown={(e) => {
+                                                    //allowing only numbers and forward slash
+                                                    if (e.key != "0" && e.key != "1" && e.key != "2" && e.key != "3" && e.key != "4" && e.key != "5" && e.key != "6" && e.key != "7" && e.key != "8" && e.key != "9" && e.key != "/" && e.key != "Backspace") {
+                                                        e.preventDefault();
+                                                    }
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="input-cont">
+                                            <label htmlFor="cardNumber">Card Holder Name</label>
+                                            <input type="text" placeholder='John Doe' />
+                                        </div>
+                                        <div className="due">
+                                            <div className="input-cont">
+                                                <label htmlFor="cardNumber">Expiry Date</label>
+                                                <input type="text" placeholder='MM/YY' maxLength={5} onKeyDown={(e) => {
+                                                    //getting the value of the input
+                                                    if (e.target.value.length == 2 && e.key != "/" && e.key != "Backspace") {
+                                                        e.target.value += "/";
+                                                    }
+                                                    //allowing only numbers and forward slash
+                                                    if (e.key != "0" && e.key != "1" && e.key != "2" && e.key != "3" && e.key != "4" && e.key != "5" && e.key != "6" && e.key != "7" && e.key != "8" && e.key != "9" && e.key != "/" && e.key != "Backspace") {
+                                                        e.preventDefault();
+                                                    }
+                                                }} />
+                                            </div>
+                                            <div className="input-cont">
+                                                <label htmlFor="cardNumber">CVV</label>
+                                                <input type="text" placeholder='000' maxLength={3}
+                                                    onKeyDown={(e) => {
+                                                        //allowing only numbers
+                                                        //allowing only numbers and forward slash
+                                                        if (e.key != "0" && e.key != "1" && e.key != "2" && e.key != "3" && e.key != "4" && e.key != "5" && e.key != "6" && e.key != "7" && e.key != "8" && e.key != "9" && e.key != "/" && e.key != "Backspace") {
+                                                            e.preventDefault();
+                                                        }
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                                 :
                                 selectedTab == 2 ?
                                     <div className="wallet method-body">
@@ -167,7 +218,7 @@ export default function CartBody() {
                     <div className="value">{totalPrice + tax + discount + ShippingPrice} K.D</div>
                 </div>
                 {/* Checkout Button */}
-                <Link href={'/checkout'} className='addBtn'>Checkout</Link>
+                <Link href={'/checkout'} className='addBtn'>Pay</Link>
             </div>
         </div>
     )

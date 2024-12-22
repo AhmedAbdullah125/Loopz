@@ -35,24 +35,24 @@ export default function HomeTickets(tickets) {
                             modules={[Autoplay, Navigation, Pagination]}
                             breakpoints={{
                                 1400: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 4.2,
                                 },
                                 1100: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 4.2,
                                 },
                                 767: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 3.2,
                                 },
                                 768: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 3.2,
                                     autoplay: false,
                                 },
                                 640: {
-                                    slidesPerView: 2,
+                                    slidesPerView: 2.1,
                                     autoplay: false,
                                 },
                                 100: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 1.1,
                                     autoplay: false,
                                 },
                             }}
@@ -101,24 +101,24 @@ export default function HomeTickets(tickets) {
                             modules={[Autoplay, Navigation, Pagination]}
                             breakpoints={{
                                 1400: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 4.2,
                                 },
                                 1100: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 4.2,
                                 },
                                 767: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 3.2,
                                 },
                                 768: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 3.2,
                                     autoplay: false,
                                 },
                                 640: {
-                                    slidesPerView: 2,
+                                    slidesPerView: 2.1,
                                     autoplay: false,
                                 },
                                 100: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 1.1,
                                     autoplay: false,
                                 },
                             }}

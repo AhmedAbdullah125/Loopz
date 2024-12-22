@@ -9,6 +9,7 @@ import './style/main.css';
 import NavBar from "./components/navBar/NavBar";
 import Footer from "./components/footer/Footer";
 import { CounterProvider } from "./Context/CounterContext";
+import { Toaster } from "sonner";
 
 
 const geistSans = localFont({
@@ -35,9 +36,11 @@ export default function RootLayout({ children }) {
           <CounterProvider>
             <NavBar />
             {children}
+
             <Footer />
           </CounterProvider>
         </ReactQueryProvider>
+        <Toaster  />
       </body>
     </html>
   );
